@@ -40,7 +40,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0A-cW-AXh">
-                                <rect key="frame" x="32" y="807.5" width="350" height="34.5"/>
+                                <rect key="frame" x="32" y="753.5" width="350" height="34.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.30007252899999998" blue="0.6560639881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
@@ -50,22 +50,37 @@
                                     <action selector="startButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="7im-tP-upa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d48-au-n4y">
+                                <rect key="frame" x="32" y="807.5" width="350" height="34.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.30007252899999998" blue="0.6560639881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xe8-rD-PJo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.15326339550000001" green="0.17510806709999999" blue="0.24287800870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="rN0-ah-aaR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Gs3-oi-Gq4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i0A-cW-AXh" secondAttribute="bottom" constant="20" id="Qaf-QK-eS0"/>
+                            <constraint firstItem="d48-au-n4y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="HEM-j6-3Ox"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d48-au-n4y" secondAttribute="bottom" constant="20" id="LAA-NE-71A"/>
                             <constraint firstItem="rN0-ah-aaR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RqB-8s-lgn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d48-au-n4y" secondAttribute="trailing" constant="32" id="SYn-Vb-Pjr"/>
                             <constraint firstItem="i0A-cW-AXh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="qKt-jN-xrd"/>
+                            <constraint firstItem="d48-au-n4y" firstAttribute="top" secondItem="i0A-cW-AXh" secondAttribute="bottom" constant="19.5" id="ygL-bL-X25"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i0A-cW-AXh" secondAttribute="trailing" constant="32" id="zKS-T1-2nq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="greenLabel" destination="rJp-wT-WZC" id="2rk-d1-doN"/>
-                        <outlet property="redLabel" destination="jE5-sz-yKh" id="dBR-S4-mMB"/>
+                        <outlet property="greenLightView" destination="rJp-wT-WZC" id="2rk-d1-doN"/>
+                        <outlet property="redLightView" destination="jE5-sz-yKh" id="dBR-S4-mMB"/>
+                        <outlet property="resetButtonOutlet" destination="d48-au-n4y" id="sey-v3-Jgp"/>
                         <outlet property="startButtonOutlet" destination="i0A-cW-AXh" id="woT-Tt-P3U"/>
-                        <outlet property="yellowLabel" destination="Ace-H9-1X4" id="kFo-g5-Ui9"/>
+                        <outlet property="yellowLightView" destination="Ace-H9-1X4" id="kFo-g5-Ui9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
