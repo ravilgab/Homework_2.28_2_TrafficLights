@@ -8,17 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let accentColor = UIColor.white.cgColor
-    let lightsOn: Float = 1
-    let lightsOff: Float = 0.2
-    var currentColor: Lights = .green
     
     enum Lights {
         case red
         case yellow
         case green
     }
+
+    let lightsOn: Float = 1
+    let lightsOff: Float = 0.2
+    var currentColor: Lights = .green
     
     @IBOutlet weak var redLabel: UIView!
     @IBOutlet weak var yellowLabel: UIView!
@@ -34,7 +33,6 @@ class ViewController: UIViewController {
         greenLabel.layer.opacity = lightsOff
         
         startButtonOutlet.layer.cornerRadius = 9
-
     }
     
     override func viewDidLayoutSubviews() {
