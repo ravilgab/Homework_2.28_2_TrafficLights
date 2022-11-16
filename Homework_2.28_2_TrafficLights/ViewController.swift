@@ -8,18 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    enum Lights {
-        case red
-        case yellow
-        case green
-    }
 
-    let lightsOn: Float = 1
-    let lightsOff: Float = 0.2
-    let buttonCornerRadius: CGFloat = 9
-    var currentColor: Lights = .green
-    
     @IBOutlet weak var redLightView: UIView!
     @IBOutlet weak var yellowLightView: UIView!
     @IBOutlet weak var greenLightView: UIView!
@@ -27,12 +16,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var resetButtonOutlet: UIButton!
     
+    private var currentColor: CurrentLight = .green
+    
+    private let lightsOn: CGFloat = 1
+    private let lightsOff: CGFloat = 0.2
+    private let buttonCornerRadius: CGFloat = 9
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redLightView.layer.opacity = lightsOff
-        yellowLightView.layer.opacity = lightsOff
-        greenLightView.layer.opacity = lightsOff
+        redLightView.alpha = lightsOff
+        yellowLightView.alpha = lightsOff
+        greenLightView.alpha = lightsOff
         
         startButtonOutlet.layer.cornerRadius = buttonCornerRadius
         resetButtonOutlet.layer.cornerRadius = buttonCornerRadius
@@ -41,7 +36,9 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        redLightView.layer.cornerRadius = redLightView.layer.bounds.width / 2
+        super.viewDidLayoutSubviews()
+
+        redLightView.layer.cornerRadius = redLightView.frame.width / 2
         yellowLightView.layer.cornerRadius = yellowLightView.layer.bounds.width / 2
         greenLightView.layer.cornerRadius = greenLightView.layer.bounds.width / 2
     }
@@ -53,24 +50,24 @@ class ViewController: UIViewController {
         
         switch currentColor {
         case .red:
-            redLightView.layer.opacity = lightsOff
-            yellowLightView.layer.opacity = lightsOn
+            redLightView.alpha = lightsOff
+            yellowLightView.alpha = lightsOn
             currentColor = .yellow
         case .yellow:
-            yellowLightView.layer.opacity = lightsOff
-            greenLightView.layer.opacity = lightsOn
+            yellowLightView.alpha = lightsOff
+            greenLightView.alpha = lightsOn
             currentColor = .green
         case .green:
-            greenLightView.layer.opacity = lightsOff
-            redLightView.layer.opacity = lightsOn
+            greenLightView.alpha = lightsOff
+            redLightView.alpha = lightsOn
             currentColor = .red
         }
     }
     
     @IBAction func resetButtonPressed() {
-        redLightView.layer.opacity = lightsOff
-        yellowLightView.layer.opacity = lightsOff
-        greenLightView.layer.opacity = lightsOff
+        redLightView.alpha = lightsOff
+        yellowLightView.alpha = lightsOff
+        greenLightView.alpha = lightsOff
         
         startButtonOutlet.setTitle("Start", for: .normal)
     
@@ -78,6 +75,13 @@ class ViewController: UIViewController {
         
         currentColor = .green
     }
-    
+}
+
+extension ViewController {
+    enum CurrentLight {
+        case red
+        case yellow
+        case green
+    }
 }
 
